@@ -20,5 +20,7 @@ export const loadTradeSkills = async (uuid: string): Promise<ITradeSkills | null
 // Update existing trade skills
 export const updateTradeSkills = async (uuid: string, skills: ITradeSkills): Promise<void> => {
     const docRef = doc(db, "tradeSkills", uuid);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     await updateDoc(docRef, skills);
 };

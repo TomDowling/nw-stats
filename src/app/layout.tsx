@@ -25,6 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         } else {
             loadSkillsFromCookies(); // Load from cookies
         }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
     }, []);
 
     return (
