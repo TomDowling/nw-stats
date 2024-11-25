@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { use } from "react"; // For unwrapping promises in Next.js App Router
 import { db } from "@/lib/firebase"; // Assuming you've set up Firebase
 import { doc, getDoc } from "firebase/firestore"; // Firestore imports
+import Head from "next/head";
 
 interface IParams {
     uuid: string;
@@ -59,7 +60,28 @@ const TradeSkillsPage = ({ params }: { params: Promise<IParams> }) => {
     }, [uuid, router]);
 
     return (
-        <div>
+        <>
+            <Head>
+                <title>{skills ? `Trade Skills: ${skills.mining}` : "Trade Skills"}</title>
+                <meta name="description" content="Check out my trade skills in New World!" />
+                <meta property="og:title" content={`New World Trade Skills`} />
+                <meta property="og:description" content={`My current trade skill levels in New World.`} />
+                <meta property="og:image" content="/default-thumbnail.jpg" /> {/* You can set a dynamic image here */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={`https://your-site.com/skills/${uuid}`} />
+                {/* Optional: Adding individual trade skill meta */}
+                {skills && (
+                    <>
+                        <meta property="og:tradeSkills" content={`Mining: ${skills.mining}, Weaponsmithing: ${skills.weaponsmithing}`} />
+                        <meta property="twitter:title" content={`New World Trade Skills`} />
+                        <meta
+                            property="twitter:description"
+                            content={`My trade skills: Mining - ${skills.mining}, Weaponsmithing - ${skills.weaponsmithing}`}
+                        />
+                        <meta property="twitter:image" content="/default-thumbnail.jpg" /> {/* Same here */}
+                    </>
+                )}
+            </Head>
             <h1>Trade Skills</h1>
             {skills ? (
                 <div>
@@ -84,7 +106,7 @@ const TradeSkillsPage = ({ params }: { params: Promise<IParams> }) => {
             ) : (
                 <p>Loading skills...</p>
             )}
-        </div>
+        </>
     );
 };
 
