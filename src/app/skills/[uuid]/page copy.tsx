@@ -64,6 +64,8 @@ const TradeSkillsPage: React.FC<TradeSkillsPageProps> = ({ uuid, skills }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const { uuid } = context.params as IParams;
 
     if (!uuid) {
