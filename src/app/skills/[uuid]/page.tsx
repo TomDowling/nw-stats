@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
         .map(([value, keys]) => `${value}: ${keys.join(",")}`)
         .join("\n");
 
-    const dynamicImageUrl = `https://14aa-89-32-127-130.ngrok-free.app/api/og/${uuid}`;
+    const dynamicImageUrl = `/api/og/${uuid}`;
 
     return {
         title: `TITLE_GOES_HERE`,
