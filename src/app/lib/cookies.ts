@@ -9,7 +9,7 @@ export const defaultTradeSkills: ITradeSkills = {
     fishing: 0,
     logging: 0,
     harvesting: 0,
-    trackingSkinning: 0,
+    skinning: 0,
     smelting: 0,
     stonecutting: 0,
     weaving: 0,

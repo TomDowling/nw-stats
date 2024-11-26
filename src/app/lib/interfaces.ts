@@ -4,7 +4,7 @@ export interface ITradeSkills {
     fishing: number;
     logging: number;
     harvesting: number;
-    trackingSkinning: number;
+    skinning: number;
     smelting: number;
     stonecutting: number;
     weaving: number;
